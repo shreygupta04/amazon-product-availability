@@ -28,6 +28,8 @@ class AmazonProductAvailability:
     CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     options.binary_location = GOOGLE_CHROME_PATH
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
 
