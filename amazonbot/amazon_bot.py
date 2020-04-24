@@ -47,7 +47,7 @@ class AmazonProductAvailability:
                 availability = '-1'
             link = container.find_element_by_xpath(".//a[@class='a-link-normal a-text-normal']").get_attribute('href')
             for word in keywords:
-                if word.capitalize() not in title:
+                if word.lower() not in title.lower():
                     create = False
             if availability.startswith('Currently unavailable') or availability.startswith('In stock on') or availability.startswith('by') or availability.startswith('Out of'):
                 create = False
