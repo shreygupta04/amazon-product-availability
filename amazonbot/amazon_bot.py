@@ -24,9 +24,12 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 class AmazonProductAvailability:
+    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
-    driver = webdriver.Chrome(executable_path="/Users/shreygupta/Documents/ComputerScience/PythonLanguage/AmazonAvailabilityBot/amazonbot/chromedriver", options=options)
+    options.binary_location = GOOGLE_CHROME_PATH
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
 
     def __init__(self):
         self.products = {}
