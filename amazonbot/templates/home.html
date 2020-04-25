@@ -3,15 +3,29 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="shortcut icon" href="https://res.cloudinary.com/di20cx7mf/image/upload/v1587844935/b7602058b9897edb33f7545db2c81b87_cardboard-box-tra_1_x6ams8.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Availability Checker</title>
 </head>
 <body>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <h1 class="display-4">AmazonRescue</h1>
+                    <p class="lead">Finding products you can buy today.</p>
+                </div>
+                <div class="col" style="margin-top: -40px; margin-left: -50px">
+                    <img src="https://res.cloudinary.com/di20cx7mf/image/upload/v1587844310/b7602058b9897edb33f7545db2c81b87_cardboard-box-tra_xtfqij.png" width="40%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-8">
-                <form class="mt-5" method="POST" action="">
+                <form class="mt-2" method="POST" action="">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4">Search for Available Amazon Products</legend>
@@ -35,7 +49,7 @@
                 </form>
             </div>
         </div>
-        <div class="row justify-content-center mt-2">
+        <div class="row">
             <div class="col-md-8">
                 {% if products %}
                     <div id="product-list" class="card">
@@ -70,6 +84,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
