@@ -1,4 +1,8 @@
 #product-list {
     max-height: 450px;
-    overflow: auto;
+    overflow-y: scroll;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
 }
