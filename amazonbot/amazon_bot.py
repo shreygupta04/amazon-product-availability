@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+import os
 
 # search = input().replace(' ', '+')
 
@@ -24,14 +25,12 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 class AmazonProductAvailability:
-    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-    options.add_argument('--no-sandbox')
+    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     options.add_argument('--disable-dev-shm-usage')
-    options.binary_location = GOOGLE_CHROME_PATH
-    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
+    options.add_argument('--no-sandbox')
+
+    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=options)
 
     def __init__(self):
         self.products = {}
