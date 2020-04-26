@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-md-8">
                 {% if products %}
-                    <div id="product-list" class="card">
+                    <div id="product-list" class="card mb-5">
                         <div class="card-body">
                             <h3 class="card-title">Available Products</h3>
                             <ul class="list-group">
@@ -63,7 +63,7 @@
                                                 {{ product['title'] }}
                                             </div>
                                             <div class="col" style="text-align: center">
-                                                <img class="img-fluid" style="height: 60%; width: 60%;" src="{{ product['picture'] }}">
+                                                <img src="{{ product['picture'] }}" class="img-fluid" style="height: 60%; width: 60%;" >
                                             </div>
                                             <div class="col">
                                                 <a href="{{ product['link'] }}" target="_blank" class="btn btn-sm btn-primary" style="float: right">Open</a>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 {% else %}
-                    <div class="card">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <h3 class="card-title">No products currently available</h3>
                             <div style="text-align: center">
