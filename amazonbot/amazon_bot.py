@@ -53,6 +53,7 @@ class AmazonProductAvailability:
             except NoSuchElementException:
                 availability = '-1'
             link = container.find_element_by_xpath(".//a[@class='a-link-normal a-text-normal']").get_attribute('href')
+            picture = container.find_element_by_xpath(".//img[@class='s-image']").get_attribute('src')
             for word in keywords:
                 if word.lower() not in title.lower():
                     create = False
@@ -62,7 +63,8 @@ class AmazonProductAvailability:
                 self.products['product' + str(i)] = {
                     'title': title,
                     'availability': availability,
-                    'link': link
+                    'link': link,
+                    'picture': picture
                 }
                 i += 1
         return self.products
