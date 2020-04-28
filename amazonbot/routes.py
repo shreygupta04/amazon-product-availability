@@ -8,10 +8,11 @@ from amazonbot.amazon_bot import AmazonProductAvailability
 def home():
     form = SearchForm()
     search = ''
+    products = {}
+    bot = AmazonProductAvailability()
     if form.validate_on_submit():
         search = form.search.data
+        products = bot.search(search)
         redirect(url_for('home'))
 
-    bot = AmazonProductAvailability()
-    products = bot.search(search)
     return render_template('home.html', form=form, products=products)
