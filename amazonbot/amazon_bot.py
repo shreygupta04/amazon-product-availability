@@ -50,9 +50,13 @@ class AmazonProductAvailability:
         for container in containers:
             create = True
             title = container.select_one("span.a-size-base-plus.a-color-base.a-text-normal").text
-            availability = container.select_one("div.a-row.a-size-base.a-color-secondary")
+            availability = container.select_one("div.a-row.a-size-base.a-color-secondary > span")
             if availability:
-                availability = availability.text
+                availability = availability.get('aria-label')
+                if availability is None:
+                    availability = "-1"
+                else:
+                    pass
             else:
                 availability = "-1"
             link = 'https://www.amazon.com/' + container.select_one("a.a-link-normal.a-text-normal")['href']
@@ -60,7 +64,7 @@ class AmazonProductAvailability:
             for word in keywords:
                 if word.lower() not in title.lower():
                     create = False
-            if availability.startswith('Currently unavailable') or availability.startswith('by') or availability.startswith('Out of'):
+            if availability.startswith('Currently') or availability.startswith('by') or availability.startswith('Out of') or availability.startswith('Temporarily'):
                 create = False
             if create:
                 self.products['product' + str(i)] = {
