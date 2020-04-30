@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from bs4 import BeautifulSoup as bs
 import os
 
 # search = input().replace(' ', '+')
@@ -42,18 +43,20 @@ class AmazonProductAvailability:
         search = keywords.replace(' ', '+')
         keywords = keywords.split()
         self.driver.get('https://www.amazon.com/s?k={}&ref=nb_sb_noss_2'.format(search))
+        self.driver.implicitly_wait(1)
+        soup_file = bs(self.driver.page_source, 'html.parser')
         i = 1
-        containers = self.driver.find_elements_by_xpath(
-            "//div[@class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section']")
+        containers = soup_file.select("div.s-expand-height.s-include-content-margin.s-border-bottom.s-latency-cf-section")
         for container in containers:
             create = True
-            title = container.find_element_by_xpath(".//span[@class='a-size-base-plus a-color-base a-text-normal']").text
-            try:
-                availability = container.find_element_by_xpath(".//div[@class='a-row a-size-base a-color-secondary']").text
-            except NoSuchElementException:
-                availability = '-1'
-            link = container.find_element_by_xpath(".//a[@class='a-link-normal a-text-normal']").get_attribute('href')
-            picture = container.find_element_by_xpath(".//img[@class='s-image']").get_attribute('src')
+            title = container.select_one("span.a-size-base-plus.a-color-base.a-text-normal").text
+            availability = container.select_one("div.a-row.a-size-base.a-color-secondary")
+            if availability:
+                availability = availability.text
+            else:
+                availability = "-1"
+            link = 'https://www.amazon.com/' + container.select_one("a.a-link-normal.a-text-normal")['href']
+            picture = container.select_one("img.s-image")['src']
             for word in keywords:
                 if word.lower() not in title.lower():
                     create = False
@@ -67,6 +70,6 @@ class AmazonProductAvailability:
                     'picture': picture
                 }
                 i += 1
+        print(self.products)
         return self.products
-
 
