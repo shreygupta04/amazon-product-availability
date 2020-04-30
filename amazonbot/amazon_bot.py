@@ -60,7 +60,7 @@ class AmazonProductAvailability:
             for word in keywords:
                 if word.lower() not in title.lower():
                     create = False
-            if availability.startswith('Currently unavailable') or availability.startswith('In stock on') or availability.startswith('by') or availability.startswith('Out of'):
+            if availability.startswith('Currently unavailable') or availability.startswith('by') or availability.startswith('Out of'):
                 create = False
             if create:
                 self.products['product' + str(i)] = {
