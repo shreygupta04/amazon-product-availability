@@ -1,6 +1,7 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '668f7da0282f35d4e18c8313'
+app.config['SECRET_KEY'] = os.environ['FLASK_SECRET_KEY']
 
 from amazonbot import routes

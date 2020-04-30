@@ -7,7 +7,6 @@ from amazonbot.amazon_bot import AmazonProductAvailability
 @app.route('/', methods=['POST', 'GET'])
 def home():
     form = SearchForm()
-    search = ''
     products = {}
     bot = AmazonProductAvailability()
     if form.validate_on_submit():

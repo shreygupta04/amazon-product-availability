@@ -70,6 +70,5 @@ class AmazonProductAvailability:
                     'picture': picture
                 }
                 i += 1
-        print(self.products)
         return self.products
 
