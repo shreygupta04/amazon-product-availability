@@ -4,7 +4,7 @@ Flask app that returns a list of in stock Amazon products. This website eliminat
 ## Getting Started
 To run this on your local machine you will need to download chromedriver that is based on your chrome version. The link can be found below. Specify the path to the file in your venv or in a `.env` file.
   * [Chromedriver](https://chromedriver.chromium.org/downloads)
-Add a Flask secret key in your venv or in a `.env` file. This will something like `FLASK_SECRET_KEY=YOUR KEY` if it is in a `.env`, otherwise add export before the statement if it is a part of your venv.
+Add a Flask secret key in your venv or in a `.env` file. This will look something like `FLASK_SECRET_KEY=YOUR KEY` if it is in a `.env`, otherwise add export before the statement if it is a part of your venv.
 
 ## Deployment
 This can be deployed on Heroku by following the steps below. Disregard anything about databases as this app does not use any
