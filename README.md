@@ -13,7 +13,7 @@ python run.py
 ```
 
 ## Deployment
-This can be deployed on Heroku by following the steps below. Disregard anything about databases as this app does not use any
+This can be deployed on Heroku by following the steps below. Disregard anything about databases as this app does not use any.
   * [Getting Started on Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
 
 ## Built With
