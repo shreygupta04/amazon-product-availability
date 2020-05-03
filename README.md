@@ -6,6 +6,12 @@ To run this on your local machine you will need to download chromedriver that is
   * [Chromedriver](https://chromedriver.chromium.org/downloads)
 Add a Flask secret key in your venv or in a `.env` file. This will look something like `FLASK_SECRET_KEY=YOUR KEY` if it is in a `.env`, otherwise add export before the statement if it is a part of your venv.
 
+### Running
+Navigate to the directory that contains the project and run the line below in the terminal. This will launch a Flask server which will provide a local host link that displays the website.
+```
+python run.py
+```
+
 ## Deployment
 This can be deployed on Heroku by following the steps below. Disregard anything about databases as this app does not use any
   * [Getting Started on Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
